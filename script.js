@@ -1,5 +1,6 @@
 var state = false;
-
+var interval;
+var state = false;
 var color = ['#ffce00', '#005cff'];
 
 var i = 0;
@@ -11,9 +12,19 @@ function changeColor() {
 }
 
 function launch() {
-  interval = setInterval(changeColor, 500);
+  interval = setInterval(changeColor, 100);
 }
 
-function stop(){
+function stop() {
   clearInterval(interval);
+}
+
+function startOrStop() {
+  state = !state;
+
+  if(state){
+    launch();
+  } else {
+    stop();
+  }
 }
